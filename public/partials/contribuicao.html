@@ -1,0 +1,26 @@
+
+<div class="panel panel-default">
+	<div class="panel-heading"><h4>Nova Contribuição</h4></div>
+	<div class="panel-body">
+
+		<div class="row">
+			<p ng-show="mensagem.texto">
+				{{mensagem.texto}}
+			</p>
+			<form ng-submit="salva()">
+				<div class="form-group">
+					<label for="local">Para onde você viajou?</label>
+					<input name="local" class="form-control" type="text" g-places-autocomplete 
+					ng-model="contribuicao.localCompleto" force-selection="true" required/>
+				</div>
+				<div>
+					<button type="submit" class="btn btn-primary">
+						Salvar
+					</button>
+					<a href="#/" class="btn btn-default">Voltar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+

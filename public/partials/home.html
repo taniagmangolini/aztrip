@@ -1,0 +1,42 @@
+	<div class="panel panel-default">
+		<div class="panel-body">
+
+			<div class="row">
+				<div class="col-md-6"> 
+					<h4 class="col-md-10"><i class="fa fa-suitcase fa-1x" aria-hidden="true"></i> Minhas Viagens</h4>
+				</div>
+				<div class="col-md-6 text-right">
+					<a class="btn btn-success" ng-href="#/contribuicao"">Nova Viagem</a> 
+				</div>
+			</div>
+			<div class="well">
+				<div map-lazy-load="https://maps.google.com/maps/api/js">
+					<ng-map center="26.33509999999999,17.228331000000026" zoom="2">
+						<div ng-repeat="contribuicao in contribuicoes">	
+							<marker position="{{contribuicao.latitude}},{{contribuicao.longitude}}" title="{{contribuicao.local}}"></marker>
+						</div>
+					</ng-map>
+				</div>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<tr>
+						<th>Local</th>
+						<th class="text-center">Ação</th>
+					</tr>
+					<tr ng-repeat="contribuicao in contribuicoes | filter: filtro">
+						<td>
+							<a ng-href="#/contribuicao/{{contribuicao._id}}">{{contribuicao.local}}</a>
+						</td>
+						<td class="text-center">
+							<button ng-click="remove(contribuicao)" class="btn btn-warning">
+								Remover
+							</buttom>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+	</div>
